@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="runnablejar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/runnablejar/servosoundtest_commu.jar!/" />
+      <root url="jar://$PROJECT_DIR$/runnablejar/servosoundtest.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

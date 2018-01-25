@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/sotalib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/SRClientHelper.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javase-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jna-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opencv-310.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/core-2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
