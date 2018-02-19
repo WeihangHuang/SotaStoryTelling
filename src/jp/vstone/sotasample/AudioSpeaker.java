@@ -21,6 +21,12 @@ public class AudioSpeaker {
         this.counter = 0;
     }
 
+    public AudioSpeaker(String story, int counter){
+        this.story = story;
+        setStory_directory(story);
+        this.counter = counter;
+    }
+
     public void welcomeMessage() {
         CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "welcome_message.wav");
         CRobotUtil.Log(TAG, "Play welcome message");
@@ -38,7 +44,7 @@ public class AudioSpeaker {
 
     public void tellFirstStoryPiece(String label) {
         this.story = label;
-        story_directory = "./audio_resources/" + story + "/";
+        setStory_directory(label);
         playStoryPiece();
     }
 
@@ -57,5 +63,9 @@ public class AudioSpeaker {
         String filePath = story_directory + counter + ".wav";
         CPlayWave.PlayWave(filePath);
         CRobotUtil.Log(TAG, "Played story: " + story + ", piece: " + counter);
+    }
+
+    private void setStory_directory(String story){
+        this.story_directory = "./audio_resources/" + story + "/";
     }
 }

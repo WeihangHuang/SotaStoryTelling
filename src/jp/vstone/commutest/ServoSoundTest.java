@@ -130,7 +130,7 @@ public class ServoSoundTest {
 		}
 		
 
-		CRobotUtil.Log(TAG, "Camera Test");
+		CRobotUtil.Log(TAG, "SOTARobot Test");
 		CPlayWave.PlayWave_wait("./sound/start_cam_test.wav");
 		
 		/**
