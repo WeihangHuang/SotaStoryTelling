@@ -29,11 +29,13 @@ public class AudioSpeaker {
 
     public void welcomeMessage() {
         CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "welcome_message.wav");
+        CRobotUtil.wait(2000);
         CRobotUtil.Log(TAG, "Play welcome message");
     }
 
     public void informTakingPhoto() {
         CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "take_a_photo.wav");
+        CRobotUtil.wait(2000);
         CRobotUtil.Log(TAG, "Play taking photo message");
     }
 
@@ -50,6 +52,7 @@ public class AudioSpeaker {
 
     public void noMoreStoryMessage() {
         CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "no_more_story.wav");
+        CRobotUtil.wait(2000);
         CRobotUtil.Log(TAG, "Play no more story message");
     }
 
@@ -62,10 +65,23 @@ public class AudioSpeaker {
     private void playStoryPiece(){
         String filePath = story_directory + counter + ".wav";
         CPlayWave.PlayWave(filePath);
+        CRobotUtil.wait(2000);
         CRobotUtil.Log(TAG, "Played story: " + story + ", piece: " + counter);
     }
 
     private void setStory_directory(String story){
         this.story_directory = "./audio_resources/" + story + "/";
+    }
+
+    public void goodByeMessage() {
+        CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "goodbye_message.wav");
+        CRobotUtil.wait(2000);
+        CRobotUtil.Log(TAG, "Play goodbye message");
+    }
+
+    public void informPhotoIsTaken() {
+        CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "photo_taken.wav");
+        CRobotUtil.wait(2000);
+        CRobotUtil.Log(TAG, "Play photo taken message");
     }
 }

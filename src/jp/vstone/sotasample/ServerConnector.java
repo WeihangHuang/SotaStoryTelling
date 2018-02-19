@@ -10,8 +10,8 @@ import java.net.Socket;
  */
 public class ServerConnector {
 
-    private int portNumber;
-    private String hostName;
+    private int portNumber = 8765;
+    private String hostName = "192.168.1.86";
 
     private Socket clientSocket = null;
     private DataInputStream in = null;
@@ -32,8 +32,11 @@ public class ServerConnector {
     public void sendImage(byte[] image)  {
         try {
             out.writeInt(1);
+            out.flush();
             out.writeInt(image.length);
+            out.flush();
             out.write(image);
+            out.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,6 +45,7 @@ public class ServerConnector {
     public void sendAudioFinishedPlayingSignal() {
         try {
             out.writeInt(2);
+            out.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,6 +54,7 @@ public class ServerConnector {
     public void sendTerminationSignal(){
         try {
             out.writeInt(3);
+            out.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }

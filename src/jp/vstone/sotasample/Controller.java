@@ -49,6 +49,7 @@ public class Controller {
                     break;
             }
 
+            speaker.goodByeMessage();
             connector.sendTerminationSignal();
             SOTARobot.down();
             System.exit(1);
@@ -72,7 +73,9 @@ public class Controller {
 
     private byte[] takePhoto(){
         speaker.informTakingPhoto();
-        return SOTARobot.takePhoto();
+        byte[] data =  SOTARobot.takePhoto();
+        speaker.informPhotoIsTaken();
+        return data;
     }
 
 }
