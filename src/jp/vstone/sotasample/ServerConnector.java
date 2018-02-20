@@ -10,8 +10,8 @@ import java.net.Socket;
  */
 public class ServerConnector {
 
-    private int portNumber = 8765;
-    private String hostName = "192.168.1.86";
+    private int portNumber = 9999;
+    private String hostName = "192.168.137.242";
 
     private Socket clientSocket = null;
     private DataInputStream in = null;
@@ -33,10 +33,13 @@ public class ServerConnector {
         try {
             out.writeInt(1);
             out.flush();
+
             out.writeInt(image.length);
             out.flush();
+
             out.write(image);
             out.flush();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -28,14 +28,12 @@ public class AudioSpeaker {
     }
 
     public void welcomeMessage() {
-        CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "welcome_message.wav");
-        CRobotUtil.wait(2000);
+        CPlayWave.PlayWave_wait(SYSTEM_MESSAGE_DIRECTORY_PATH + "welcome_message.wav");
         CRobotUtil.Log(TAG, "Play welcome message");
     }
 
     public void informTakingPhoto() {
-        CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "take_a_photo.wav");
-        CRobotUtil.wait(2000);
+        CPlayWave.PlayWave_wait(SYSTEM_MESSAGE_DIRECTORY_PATH + "take_a_photo.wav");
         CRobotUtil.Log(TAG, "Play taking photo message");
     }
 
@@ -51,8 +49,7 @@ public class AudioSpeaker {
     }
 
     public void noMoreStoryMessage() {
-        CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "no_more_story.wav");
-        CRobotUtil.wait(2000);
+        CPlayWave.PlayWave_wait(SYSTEM_MESSAGE_DIRECTORY_PATH + "no_more_story.wav");
         CRobotUtil.Log(TAG, "Play no more story message");
     }
 
@@ -64,8 +61,7 @@ public class AudioSpeaker {
 
     private void playStoryPiece(){
         String filePath = story_directory + counter + ".wav";
-        CPlayWave.PlayWave(filePath);
-        CRobotUtil.wait(2000);
+        CPlayWave.PlayWave_wait(filePath);
         CRobotUtil.Log(TAG, "Played story: " + story + ", piece: " + counter);
     }
 
@@ -74,14 +70,12 @@ public class AudioSpeaker {
     }
 
     public void goodByeMessage() {
-        CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "goodbye_message.wav");
-        CRobotUtil.wait(2000);
+        CPlayWave.PlayWave_wait(SYSTEM_MESSAGE_DIRECTORY_PATH + "goodbye_message.wav");
         CRobotUtil.Log(TAG, "Play goodbye message");
     }
 
     public void informPhotoIsTaken() {
-        CPlayWave.PlayWave(SYSTEM_MESSAGE_DIRECTORY_PATH + "photo_taken.wav");
-        CRobotUtil.wait(2000);
+        CPlayWave.PlayWave_wait(SYSTEM_MESSAGE_DIRECTORY_PATH + "photo_taken.wav");
         CRobotUtil.Log(TAG, "Play photo taken message");
     }
 }

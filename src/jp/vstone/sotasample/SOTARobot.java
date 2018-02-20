@@ -25,9 +25,11 @@ public class SOTARobot {
         mem = new CRobotMem();
         motion = new CSotaMotion(mem);
         camera = new CRoboCamera("/dev/video0", motion);
-        motion.InitRobot_Sota();
-        motion.ServoOn();
-        CRobotUtil.Log(TAG, "EVA初号機、発進！");
+        if (mem.Connect()) {
+            motion.InitRobot_Sota();
+            motion.ServoOn();
+            CRobotUtil.Log(TAG, "EVA初号機、発進！");
+        }
     }
 
     public byte[] takePhoto() {
