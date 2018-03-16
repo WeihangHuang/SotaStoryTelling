@@ -47,15 +47,6 @@ public class SpeechRecogEngine {
         microphone.startRecording();
         while (true)
         {
-
-
-            System.out.println("Start speaking. Press Ctrl-C to quit.\n");
-
-            /*
-             * This method will return when the end of speech
-             * is reached. Note that the endpointer will determine
-             * the end of speech.
-             */
             Result result = recognizer.recognize();
             if (result != null)
             {
@@ -64,12 +55,14 @@ public class SpeechRecogEngine {
                 resultText = result.getBestFinalResultNoFiller();
                 System.out.println("You said: " + resultText +  "\n");
                 if (resultText.equalsIgnoreCase("yes")){
+
                     return true; //If the answer is yes, then return true
                 }else if(resultText.equalsIgnoreCase("no")){
+
                     return false; //If the answer is no then return false
                 }else {
                     //If the answer of the user is not yes or no then prompt for an answer again
-                    System.out.println("Please respond in yes or no");
+                    System.out.println("Im listening for yes or no!");
                 }
             }
             else
@@ -79,35 +72,22 @@ public class SpeechRecogEngine {
         }
     }
 
-    public void voiceRecogEngineOn(String switchOffWord){
-        /* the microphone will keep recording until the program exits */
-
-        System.out.println("Say: (yes | no)");
+    public boolean voiceRecogEngineOnWord(String switchOffWord){
         microphone.startRecording();
 
         while (true)
             {
-
-
-                System.out.println("Start speaking. Press Ctrl-C to quit.\n");
-
-                /*
-                 * This method will return when the end of speech
-                 * is reached. Note that the endpointer will determine
-                 * the end of speech.
-                 */
-
-
                 Result result = recognizer.recognize();
-                if (result != null)
-                {
+                if (result != null){
 
                     System.out.println("Enter your choice"+ "\n");
                     resultText = result.getBestFinalResultNoFiller();
-                    System.out.println("You said: " + resultText + "We want " + switchOffWord + "\n");
+                    System.out.println("You said: " + resultText);
                     if (switchOffWord.equalsIgnoreCase(resultText)){
-                        System.out.println("Word matched");
-                        break;
+                        //System.out.println("Word matched");
+                        return true;
+                    }else{
+                        return false;
                     }
                 }
                 else

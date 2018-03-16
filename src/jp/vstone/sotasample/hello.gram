@@ -8,7 +8,15 @@ grammar hello;
 
 public <answer> = (Yes | No);
 
+public <answer> = (Yes | No);
 
+public <fruit> = (Peach|Apple|Lemon|Orange|Kiwi|Lime);
+
+public <command> = (wake up|go to sleep|next story);
+
+public <emotions> = (I am)(Happy|Sad|Bored);
+
+public <greeting> = (Hello | Goodbye);
 
 /** i have used "go girl" to work with "Google". as there is no word like "google" in the dictionary so 
  *  it wont support that, and that will give you an error of "google" is not a dictionary word. 

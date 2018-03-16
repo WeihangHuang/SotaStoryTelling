@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="TIDIGITS_8gau_13dCep_16k_40mel_130Hz_6800Hz">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/TIDIGITS_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sphinx4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsapi.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
