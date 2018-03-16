@@ -12,13 +12,13 @@ public class Controller {
     private ServerConnector connector;
     private AudioSpeaker speaker;
     private SOTARobot SOTARobot;
-    private SpeechRecognizer recognizer;
+    private SpeechRecogEngine speechRecognizer;
 
     public Controller(){
         this.connector = new ServerConnector();
         this.speaker = new AudioSpeaker();
         this.SOTARobot = new SOTARobot();
-        this.recognizer = new SpeechRecognizer();
+        this.speechRecognizer = new SpeechRecogEngine();
     }
 
     public static void main(String[] args){
@@ -63,7 +63,7 @@ public class Controller {
     }
 
     private boolean isTellingNext() {
-        return recognizer.recognizeBoolean();
+        return speechRecognizer.voiceRecogEngineYesNo();
     }
 
     private void tellingFirstStoryPiece(String story) {

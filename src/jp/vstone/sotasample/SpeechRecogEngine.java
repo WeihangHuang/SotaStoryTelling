@@ -50,12 +50,10 @@ public class SpeechRecogEngine {
             Result result = recognizer.recognize();
             if (result != null)
             {
-
-                System.out.println("Enter your choice"+ "\n");
                 resultText = result.getBestFinalResultNoFiller();
                 System.out.println("You said: " + resultText +  "\n");
                 if (resultText.equalsIgnoreCase("yes")){
-
+                    microphone.stopRecording();
                     return true; //If the answer is yes, then return true
                 }else if(resultText.equalsIgnoreCase("no")){
 
@@ -85,6 +83,7 @@ public class SpeechRecogEngine {
                     System.out.println("You said: " + resultText);
                     if (switchOffWord.equalsIgnoreCase(resultText)){
                         //System.out.println("Word matched");
+                        microphone.stopRecording();
                         return true;
                     }else{
                         return false;
