@@ -45,7 +45,7 @@ public class SpeechRecogEngine {
     public boolean voiceRecogEngineYesNo(){
 
         microphone.startRecording();
-        while (true)
+        while (microphone.isRecording())
         {
             Result result = recognizer.recognize();
             if (result != null)
@@ -53,10 +53,10 @@ public class SpeechRecogEngine {
                 resultText = result.getBestFinalResultNoFiller();
                 System.out.println("You said: " + resultText +  "\n");
                 if (resultText.equalsIgnoreCase("yes")){
-                    microphone.stopRecording();
+                    microphone.clear();
                     return true; //If the answer is yes, then return true
                 }else if(resultText.equalsIgnoreCase("no")){
-
+                    microphone.clear();
                     return false; //If the answer is no then return false
                 }else {
                     //If the answer of the user is not yes or no then prompt for an answer again
@@ -66,14 +66,16 @@ public class SpeechRecogEngine {
             else
             {
                 System.out.println("I can't hear what you said.\n");
+                System.out.println("Yes / no");
             }
         }
+        return false;
     }
 
     public boolean voiceRecogEngineOnWord(String switchOffWord){
         microphone.startRecording();
 
-        while (true)
+        while (microphone.isRecording())
             {
                 Result result = recognizer.recognize();
                 if (result != null){
@@ -83,16 +85,19 @@ public class SpeechRecogEngine {
                     System.out.println("You said: " + resultText);
                     if (switchOffWord.equalsIgnoreCase(resultText)){
                         //System.out.println("Word matched");
-                        microphone.stopRecording();
+                        microphone.clear();
                         return true;
                     }else{
+                        microphone.clear();
                         return false;
                     }
                 }
                 else
                 {
                     System.out.println("I can't hear what you said.\n");
+                    System.out.println("SwitchoffWord");
                 }
             }
+            return false;
         }
 }

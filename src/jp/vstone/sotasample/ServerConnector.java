@@ -11,14 +11,14 @@ import java.net.Socket;
 public class ServerConnector {
 
     private int portNumber = 9999;
-    private String hostName = "192.168.137.242";
+//    private String hostName = "192.168.137.1";
 
     private Socket clientSocket = null;
     private DataInputStream in = null;
     private DataOutputStream out = null;
 
 
-    public ServerConnector(){
+    public ServerConnector(String hostName){
         try {
             clientSocket = new Socket(hostName, portNumber);
             in = new DataInputStream(clientSocket.getInputStream());
@@ -39,8 +39,10 @@ public class ServerConnector {
 
             out.write(image);
             out.flush();
+            System.out.println("Error here2");
 
         } catch (IOException e) {
+            System.out.println("Error here3");
             e.printStackTrace();
         }
     }

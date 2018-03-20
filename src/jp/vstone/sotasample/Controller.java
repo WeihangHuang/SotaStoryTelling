@@ -3,6 +3,7 @@ package jp.vstone.sotasample;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 /**
  * Created by apple on 2/19/18.
@@ -14,15 +15,22 @@ public class Controller {
     private SOTARobot SOTARobot;
     private SpeechRecogEngine speechRecognizer;
 
-    public Controller(){
-        this.connector = new ServerConnector();
+    public Controller(String hostName){
+        this.connector = new ServerConnector(hostName);
         this.speaker = new AudioSpeaker();
         this.SOTARobot = new SOTARobot();
         this.speechRecognizer = new SpeechRecogEngine();
     }
 
     public static void main(String[] args){
-        Controller controller = new Controller();
+        String hostName;
+
+        Scanner reader = new Scanner(System.in);
+        System.out.print("Input IP Address: ");
+        hostName = reader.nextLine();
+        reader.close();
+
+        Controller controller = new Controller(hostName);
         controller.run();
     }
 
@@ -42,6 +50,7 @@ public class Controller {
                 if (isTellingNext() && hasNextStoryPiece()) {
                     connector.receivedServerSignal();
                     speaker.tellNextStoryPiece();
+                    connector.sendAudioFinishedPlayingSignal();
                 } else if (!hasNextStoryPiece()) {
                     speaker.noMoreStoryMessage();
                     break;
