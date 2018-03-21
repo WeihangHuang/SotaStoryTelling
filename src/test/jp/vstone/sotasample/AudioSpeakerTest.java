@@ -1,7 +1,8 @@
 package jp.vstone.sotasample;
 
 import org.junit.Test;
-
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 import static org.junit.Assert.*;
 
 /**

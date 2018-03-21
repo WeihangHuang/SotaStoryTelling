@@ -1,0 +1,2 @@
+0 MOV -1 SPK 0 ANS -1
+1 MOV 0 SPK 1 ANS -1

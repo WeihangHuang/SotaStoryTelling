@@ -98,4 +98,17 @@ public class MotionEngine {
         this.posePlay();
 
     }
+
+    public void play(int movementSelect){
+        switch(movementSelect){
+            case 0:
+                bingo();
+                break;
+            case 1:
+                headShake();
+                break;
+            default:
+                break;
+        }
+    }
 }

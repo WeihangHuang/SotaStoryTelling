@@ -11,7 +11,7 @@ import java.net.Socket;
 public class ServerConnector {
 
     private int portNumber = 9999;
-//    private String hostName = "192.168.137.1";
+    //private String hostName = "192.168.137.1";
 
     private Socket clientSocket = null;
     private DataInputStream in = null;
@@ -39,10 +39,8 @@ public class ServerConnector {
 
             out.write(image);
             out.flush();
-            System.out.println("Error here2");
 
         } catch (IOException e) {
-            System.out.println("Error here3");
             e.printStackTrace();
         }
     }
@@ -87,5 +85,14 @@ public class ServerConnector {
         }
 
         return signal;
+    }
+
+    public void startPlayingAudioSignal() {
+        try {
+            out.writeInt(4);
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

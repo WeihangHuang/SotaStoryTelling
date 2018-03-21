@@ -59,6 +59,14 @@ public class AudioSpeaker {
         return filePath;
     }
 
+    public void tellStoryPhase(String storyTitle, int phase){
+        this.story = storyTitle;
+        setStory_directory(storyTitle);
+        String filePath = story_directory + phase + ".wav";
+        CPlayWave.PlayWave_wait(filePath);
+        CRobotUtil.Log(TAG, "Played story: " + story + ", phase " + phase);
+    }
+
     private void playStoryPiece(){
         String filePath = story_directory + counter + ".wav";
         CPlayWave.PlayWave_wait(filePath);
@@ -66,7 +74,7 @@ public class AudioSpeaker {
     }
 
     private void setStory_directory(String story){
-        this.story_directory = "./audio_resources/" + story + "/";
+        this.story_directory = "./audio_resources/" + story + "/audio";
     }
 
     public void goodByeMessage() {

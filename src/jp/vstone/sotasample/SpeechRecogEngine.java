@@ -79,17 +79,17 @@ public class SpeechRecogEngine {
             {
                 Result result = recognizer.recognize();
                 if (result != null){
-
-                    System.out.println("Enter your choice"+ "\n");
                     resultText = result.getBestFinalResultNoFiller();
-                    System.out.println("You said: " + resultText);
+                    System.out.println("You said: " + resultText + "We're looking for: " + switchOffWord);
                     if (switchOffWord.equalsIgnoreCase(resultText)){
                         //System.out.println("Word matched");
                         microphone.clear();
                         return true;
                     }else{
+                        //Even if the answer is wrong we want it to continue
+                        System.out.println("Try again!");
                         microphone.clear();
-                        return false;
+                        //return false;
                     }
                 }
                 else
